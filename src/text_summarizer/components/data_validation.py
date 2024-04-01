@@ -1,9 +1,5 @@
 import os
-import urllib.request as request
-import zipfile
 from text_summarizer.logging import logger
-from text_summarizer.utils.common import get_size
-from pathlib import Path
 from text_summarizer.entity import DataValidationConfig
 
 class DataValidation:
