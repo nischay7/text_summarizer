@@ -4,6 +4,7 @@ from text_summarizer.pipeline.stage_03_data_transformation import  DataTransform
 from text_summarizer.pipeline.stage_04_model_trainer import  ModeltrainerTrainingPipeline
 
 from text_summarizer.logging import logger
+from text_summarizer.pipeline.stage_05_model_evaluation import ModelEvaluationPipeline
 
 STAGE_NAME = "Data Ingestion stage"
 
@@ -55,3 +56,14 @@ except Exception as e:
     logger.exception(e)
     raise e
 
+
+STAGE_NAME = "Model Evaluation stage"
+
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<<")
+    data_transformation = ModelEvaluationPipeline()
+    data_transformation.main()
+    logger.info(f">>>>>>> stage {STAGE_NAME} completed <<<<<<<\n\nx========X")
+except Exception as e:
+    logger.exception(e)
+    raise e
